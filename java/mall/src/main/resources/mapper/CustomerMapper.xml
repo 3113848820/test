@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.xiao.mall.mapper.CustomerMapper">
+    <update id="delById" parameterType="com.xiao.mall.dom.Customer">
+        update customer set active=#{active} where id=#{id}
+    </update>
+    <select id="findByName" resultType="com.xiao.mall.dom.Customer" parameterType="string">
+        select * from customer where name=#{name} and active=1
+    </select>
+    <select id="findLikeName" resultType="com.xiao.mall.dom.Customer" parameterType="string">
+        select * from customer where name like concat('%',#{name},'%')
+    </select>
+    <update id="updateById" parameterType="com.xiao.mall.dom.Customer">
+        update customer set name=#{name},email=#{email} where id=#{id}
+    </update>
+    <insert id="add" parameterType="com.xiao.mall.dom.Customer">
+        insert into customer(name,password,email) values (#{name},#{password},#{email})
+    </insert>
+</mapper>

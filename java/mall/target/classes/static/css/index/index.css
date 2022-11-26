@@ -1,0 +1,39 @@
+a{
+    text-decoration: none;
+}
+ul{
+    list-style: none;
+}
+.title{
+    display: flex;
+    justify-content: space-between;
+    padding: 10px;
+    border-bottom:1px solid #1d2124;
+}
+.main{
+    margin-top: 20px;
+    display: flex;
+}
+.main-left{
+    width: 300px;
+    border-right: 1px solid #1d2124;
+}
+.main-left ul li{
+    margin-bottom: 20px;
+}
+.main-right{
+    width: 100%;
+    text-align: center;
+}
+.last-td{
+    display: flex;
+    text-align: center;
+    justify-content: space-around;
+}
+.main-right-header{
+    display: flex;
+    justify-content: space-between;
+}
+.inp-search{
+    width: 400px;
+}

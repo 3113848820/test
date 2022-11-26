@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<a th:href="@{/product/findByPage}">查询</a>
+<table class="table">
+    <tr>
+        <td>id</td>
+        <td>sname</td>
+        <td>price</td>
+        <td>num</td>
+        <td>action</td>
+    </tr>
+    <tr th:each="product:${productList}">
+        <form th:action="@{/product/updateById}" method="post">
+            <td><input type="text" class="form-control" name="id" th:value="${product.id}" readonly></td>
+            <td><input type="text" class="form-control" name="sname" th:value="${product.sname}"></td>
+            <td>
+                <div class="input-group mb-3">
+                    <div class="input-group-prepend">
+                        <span class="input-group-text">单位：￥</span>
+                    </div>
+                    <input type="text" class="form-control" name="price" th:value="${product.price}">
+                </div>
+            </td>
+            <td><input type="text" class="form-control" name="num" th:value="${product.num}" min="0" max="100"></td>
+            <td>
+                <button class="btn btn-warning" type="submit">修改</button>
+
+                <button class="btn btn-danger" type="button" th:data-id="${product.id}"
+                        onclick="delProductById(this.getAttribute('data-id'))">删除</button>
+            </td>
+        </form>
+    </tr>
+</table>
+</body>
+</html>
